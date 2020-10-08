@@ -10,4 +10,6 @@ public class QrStudentsAttendanceApplication {
 		SpringApplication.run(QrStudentsAttendanceApplication.class, args);
 	}
 
+	// TODO handle "Bad credentials" error when get user
+
 }
