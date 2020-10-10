@@ -23,7 +23,7 @@ public class CustomTokenEnhancer implements TokenEnhancer {
             Student account = (Student) principal;
 
             additionalInformation.put("userId", account.getId());
-            additionalInformation.put("username", account.getUniversityId());
+            additionalInformation.put("username", account.getUsername());
         }
 
         ((DefaultOAuth2AccessToken) oAuth2AccessToken).setAdditionalInformation(additionalInformation);
