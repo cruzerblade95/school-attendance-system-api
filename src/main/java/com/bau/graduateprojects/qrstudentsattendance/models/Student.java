@@ -17,7 +17,7 @@ public class Student implements UserDetails {
     private Long id;
     private String name;
     private String email;
-    private String universityId;
+    private String username;
     private String password;
     private LocalDate birthDay;
     private int numberOfAbsence;
@@ -36,12 +36,12 @@ public class Student implements UserDetails {
 
     @Override
     public String getPassword() {
-        return null;
+        return this.password;
     }
 
     @Override
     public String getUsername() {
-        return null;
+        return this.username;
     }
 
     @Override
