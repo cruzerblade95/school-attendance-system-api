@@ -5,6 +5,8 @@ import com.bau.graduateprojects.qrstudentsattendance.repositories.StudentReposit
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 import static java.util.Objects.isNull;
 
 @Service
@@ -20,6 +22,14 @@ public class StudentService {
         throwIfNull(student, "student");
         encodePassword(student);
         return studentRepository.save(student);
+    }
+
+    public List<Student> listAllStudents() {
+        return studentRepository.findAll();
+    }
+
+    public Student getStudentByUsername(String username) {
+        return studentRepository.findStudentByUsername(username);
     }
 
     private void encodePassword(Student student) {

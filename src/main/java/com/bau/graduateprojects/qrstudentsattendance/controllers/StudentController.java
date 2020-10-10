@@ -2,12 +2,10 @@ package com.bau.graduateprojects.qrstudentsattendance.controllers;
 
 import com.bau.graduateprojects.qrstudentsattendance.models.Student;
 import com.bau.graduateprojects.qrstudentsattendance.services.StudentService;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+import java.util.List;
 
 @RestController
 @RequestMapping("/api/v1/students")
@@ -21,5 +19,15 @@ public class StudentController {
     @PostMapping
     public Student createStudent(@RequestBody @Valid Student Student) {
         return studentService.createStudent(Student);
+    }
+
+    @GetMapping
+    public List<Student> listAllStudents() {
+        return studentService.listAllStudents();
+    }
+
+    @GetMapping("/{username}")
+    public Student getStudentByUsername(@PathVariable String username) {
+        return studentService.getStudentByUsername(username);
     }
 }
