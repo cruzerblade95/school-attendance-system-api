@@ -17,7 +17,7 @@ public class StudentServiceTest {
     @BeforeEach
     void setUp() {
         MockStudentRepository mockStudentRepository = new MockStudentRepository();
-        studentService = new StudentService(mockStudentRepository);
+        studentService = new StudentServiceImpl(mockStudentRepository);
     }
 
     @Test
