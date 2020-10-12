@@ -19,7 +19,8 @@ public class Instructor {
     private String officeLocation;
     @OneToMany
     private List<InstructorOfficeHours> instructorOfficeHours;
-    @ManyToMany
+    @OneToMany
     private List<Course> courses;
 
+    // TODO edit the relations between the entities
 }
