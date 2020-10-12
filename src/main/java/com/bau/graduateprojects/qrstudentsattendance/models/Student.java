@@ -20,6 +20,7 @@ public class Student implements UserDetails {
     private String name;
     private String email;
     @NotNull
+    @Column(unique = true)
     private String username;
     @NotNull
     private String password;
