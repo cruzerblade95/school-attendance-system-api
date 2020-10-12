@@ -22,6 +22,7 @@ public class StudentServiceImpl implements StudentService {
     @Override
     public Student createStudent(Student student) {
         requireNonNull(student, "student object must not be null");
+        throwIfExistUsername(student.getUsername());
         student.setPassword(encodePassword(student.getPassword()));
         return studentRepository.save(student);
     }
@@ -51,6 +52,14 @@ public class StudentServiceImpl implements StudentService {
                         newStudent.getPassword()));
 
         return studentRepository.save(newStudent);
+    }
+
+    private void throwIfExistUsername(String username) {
+        boolean isExists = studentRepository
+                .existsStudentByUsername(username);
+        if (isExists) {
+            throw new IllegalArgumentException("username is already taken");
+        }
     }
 
     private String updatePassword(String oldPassword, String newPassword) {

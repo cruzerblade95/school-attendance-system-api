@@ -17,8 +17,8 @@ public class StudentController {
     }
 
     @PostMapping
-    public Student createStudent(@RequestBody @Valid Student Student) {
-        return studentService.createStudent(Student);
+    public Student createStudent(@RequestBody @Valid Student student) {
+        return studentService.createStudent(student);
     }
 
     @GetMapping
