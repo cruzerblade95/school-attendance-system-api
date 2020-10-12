@@ -7,10 +7,11 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 
-import static java.util.Objects.isNull;
+import static java.util.Objects.requireNonNull;
 
 @Service
 public class StudentServiceImpl implements StudentService {
+
 
     private final StudentRepository studentRepository;
 
@@ -18,28 +19,56 @@ public class StudentServiceImpl implements StudentService {
         this.studentRepository = studentRepository;
     }
 
+    @Override
     public Student createStudent(Student student) {
-        throwIfNull(student, "student");
-        encodePassword(student);
+        requireNonNull(student, "student object must not be null");
+        student.setPassword(encodePassword(student.getPassword()));
         return studentRepository.save(student);
     }
 
+    @Override
     public List<Student> listAllStudents() {
         return studentRepository.findAll();
     }
 
+    @Override
     public Student getStudentByUsername(String username) {
         return studentRepository.findStudentByUsername(username);
     }
 
-    private void encodePassword(Student student) {
-        String encodedPassword = new BCryptPasswordEncoder()
-                .encode(student.getPassword());
-        student.setPassword(encodedPassword);
+    @Override
+    public void deleteStudent(String username) {
+        Student student = getStudentByUsername(username);
+        studentRepository.delete(student);
     }
 
-    private void throwIfNull(Object o, String fieldName) {
-        if (isNull(o))
-            throw new IllegalArgumentException(fieldName + " must not be null");
+    @Override
+    public Student updateStudent(String username, Student newStudent) {
+        Student oldStudent = getStudentByUsername(username);
+
+        newStudent
+                .setPassword(updatePassword(oldStudent.getPassword(),
+                        newStudent.getPassword()));
+
+        return studentRepository.save(newStudent);
+    }
+
+    private String updatePassword(String oldPassword, String newPassword) {
+        return !isMatchesPassword(oldPassword, newPassword) ?
+                new BCryptPasswordEncoder()
+                        .encode(newPassword) : oldPassword;
+
+    }
+
+    private boolean isMatchesPassword(String old, String latest) {
+        return new BCryptPasswordEncoder()
+                .matches(old, latest);
+    }
+
+
+    private String encodePassword(String password) {
+        return new BCryptPasswordEncoder()
+                .encode(password);
+
     }
 }

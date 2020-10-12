@@ -30,4 +30,14 @@ public class StudentController {
     public Student getStudentByUsername(@PathVariable String username) {
         return studentService.getStudentByUsername(username);
     }
+
+    @PutMapping("/{username}")
+    public Student updateStudent(@RequestBody @Valid Student student, @PathVariable String username) {
+        return studentService.updateStudent(username, student);
+    }
+
+    @DeleteMapping("/{username}")
+    public void deleteStudent(@PathVariable String username) {
+        studentService.deleteStudent(username);
+    }
 }
