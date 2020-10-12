@@ -1,5 +1,8 @@
 package com.bau.graduateprojects.qrstudentsattendance.models;
 
+import com.bau.graduateprojects.qrstudentsattendance.enums.Collage;
+import com.bau.graduateprojects.qrstudentsattendance.enums.DegreeLevel;
+import com.bau.graduateprojects.qrstudentsattendance.enums.Major;
 import lombok.Data;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -24,6 +27,12 @@ public class Student implements UserDetails {
     private String username;
     @NotNull
     private String password;
+    private Collage collage;
+    private Major major;
+    private DegreeLevel degreeLevel;
+    private String nationality;
+    private String birthLocation;
+    private int successHours;
     private LocalDate birthDay;
     private int numberOfAbsence;
     private LocalDateTime creationDate;
