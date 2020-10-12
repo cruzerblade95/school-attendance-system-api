@@ -1,6 +1,5 @@
 package com.bau.graduateprojects.qrstudentsattendance.models;
 
-import com.bau.graduateprojects.qrstudentsattendance.enums.Semester;
 import lombok.Data;
 
 import javax.persistence.*;
@@ -9,17 +8,18 @@ import java.util.List;
 
 @Entity
 @Data
-public class Course {
+public class Instructor {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     @NotBlank
     private String name;
-    @Enumerated(EnumType.STRING)
-    private Semester semester;
-    private int sectionNo;
+    private String phone;
+    private String email;
+    private String officeLocation;
+    @OneToMany
+    private List<InstructorOfficeHours> instructorOfficeHours;
     @ManyToMany
-    private List<Instructor> instructor;
-
+    private List<Course> courses;
 
 }
