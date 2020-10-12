@@ -5,7 +5,6 @@ import lombok.Data;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
-import java.util.List;
 
 @Entity
 @Data
@@ -18,8 +17,7 @@ public class Course {
     @Enumerated(EnumType.STRING)
     private Semester semester;
     private int sectionNo;
-    @ManyToMany
-    private List<Instructor> instructor;
-
+    @ManyToOne
+    private Instructor instructor;
 
 }
