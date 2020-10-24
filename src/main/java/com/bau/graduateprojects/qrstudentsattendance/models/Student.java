@@ -8,10 +8,11 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import javax.persistence.*;
-import javax.validation.constraints.NotNull;
+import javax.validation.constraints.NotBlank;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.Collection;
+import java.util.List;
 
 @Data
 @Entity
@@ -19,13 +20,12 @@ public class Student implements UserDetails {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-    @NotNull
+    @NotBlank
     private String name;
     private String email;
-    @NotNull
-    @Column(unique = true)
+    @NotBlank
     private String username;
-    @NotNull
+    @NotBlank
     private String password;
     private Collage collage;
     private Major major;

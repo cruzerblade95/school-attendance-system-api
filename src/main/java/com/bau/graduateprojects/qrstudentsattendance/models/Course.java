@@ -5,6 +5,7 @@ import lombok.Data;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
+import java.time.LocalTime;
 
 @Entity
 @Data
@@ -17,7 +18,7 @@ public class Course {
     @Enumerated(EnumType.STRING)
     private Semester semester;
     private int sectionNo;
-    @ManyToOne
-    private Instructor instructor;
-
+    private LocalTime timeFrom;
+    private LocalTime timeTo;
+    private int numberOfLimitAbsence;
 }

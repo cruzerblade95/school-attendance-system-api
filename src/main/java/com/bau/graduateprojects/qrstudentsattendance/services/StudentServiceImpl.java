@@ -54,6 +54,7 @@ public class StudentServiceImpl implements StudentService {
         return studentRepository.save(newStudent);
     }
 
+
     private void throwIfExistUsername(String username) {
         boolean isExists = studentRepository
                 .existsStudentByUsername(username);

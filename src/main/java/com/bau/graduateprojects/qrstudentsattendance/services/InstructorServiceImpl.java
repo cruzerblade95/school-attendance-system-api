@@ -1,17 +1,22 @@
 package com.bau.graduateprojects.qrstudentsattendance.services;
 
+import com.bau.graduateprojects.qrstudentsattendance.models.Course;
 import com.bau.graduateprojects.qrstudentsattendance.models.Instructor;
+import com.bau.graduateprojects.qrstudentsattendance.repositories.CourseRepository;
 import com.bau.graduateprojects.qrstudentsattendance.repositories.InstructorRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class InstructorServiceImpl implements InstructorService {
     private final InstructorRepository instructorRepository;
+    private final CourseRepository courseRepository;
 
-    public InstructorServiceImpl(InstructorRepository instructorRepository) {
+    public InstructorServiceImpl(InstructorRepository instructorRepository, CourseRepository courseRepository) {
         this.instructorRepository = instructorRepository;
+        this.courseRepository = courseRepository;
     }
 
     @Override
