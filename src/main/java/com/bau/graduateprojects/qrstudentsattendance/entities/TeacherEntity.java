@@ -3,6 +3,7 @@ package com.bau.graduateprojects.qrstudentsattendance.entities;
 import lombok.Data;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Data
@@ -13,4 +14,6 @@ public class TeacherEntity {
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Long id;
     private String name;
+    @OneToMany
+    private List<CourseEntity> courseList;
 }
