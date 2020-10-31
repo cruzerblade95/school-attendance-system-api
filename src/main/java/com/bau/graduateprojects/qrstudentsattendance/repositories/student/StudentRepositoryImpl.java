@@ -1,6 +1,7 @@
 package com.bau.graduateprojects.qrstudentsattendance.repositories.student;
 
 import com.bau.graduateprojects.qrstudentsattendance.entities.StudentEntity;
+import com.bau.graduateprojects.qrstudentsattendance.exception.DuplicatedUsernameException;
 import com.bau.graduateprojects.qrstudentsattendance.exception.ResourceNotFoundException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Repository;
@@ -30,7 +31,7 @@ public class StudentRepositoryImpl implements StudentRepository {
 
     @Override
     public StudentEntity add(StudentEntity studentEntity) {
-
+        isExistUsername(studentEntity.getUsername());
         studentEntity.setPassword(new BCryptPasswordEncoder()
                 .encode(studentEntity.getPassword()));
 
@@ -53,4 +54,9 @@ public class StudentRepositoryImpl implements StudentRepository {
         return jpaRepository.findAll();
     }
 
+    private void isExistUsername(String username) {
+        if (jpaRepository.existsStudentEntityByUsername(username)) {
+            throw new DuplicatedUsernameException(username + " username is already taken");
+        }
+    }
 }

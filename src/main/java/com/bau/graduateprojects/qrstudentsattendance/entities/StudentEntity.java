@@ -1,10 +1,16 @@
 package com.bau.graduateprojects.qrstudentsattendance.entities;
 
+import com.bau.graduateprojects.qrstudentsattendance.enums.Collage;
+import com.bau.graduateprojects.qrstudentsattendance.enums.DegreeLevel;
+import com.bau.graduateprojects.qrstudentsattendance.enums.Major;
 import lombok.Data;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotBlank;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.Collection;
 import java.util.List;
 
@@ -16,11 +22,29 @@ public class StudentEntity implements UserDetails {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Long id;
+    @NotBlank(message = "student name is required")
     private String name;
+    @NotBlank(message = "student username is required")
     private String username;
+    @NotBlank(message = "student password is required")
     private String password;
+    private Collage collage;
+    private Major major;
+    private DegreeLevel degreeLevel;
+    private String nationality;
+    private String birthCountry;
+    private int successHours;
+    private LocalDate birthDate;
+    private LocalDateTime creationDate;
     @OneToMany
     private List<CourseEntity> courseList;
+
+
+    @PrePersist
+    public void prePersist() {
+        this.creationDate = LocalDateTime.now();
+    }
+
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
