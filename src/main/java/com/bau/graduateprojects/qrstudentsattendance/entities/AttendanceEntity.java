@@ -14,4 +14,8 @@ public class AttendanceEntity {
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Long id;
     private Status status;
+    @OneToOne
+    private StudentEntity student;
+    @ManyToOne
+    private LectureEntity lecture;
 }
