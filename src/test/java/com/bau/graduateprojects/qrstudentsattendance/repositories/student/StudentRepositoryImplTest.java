@@ -31,6 +31,4 @@ public class StudentRepositoryImplTest {
         StudentEntity actual = jpaRepository.save(entity);
         assertEquals(entity, actual);
     }
-
-
 }

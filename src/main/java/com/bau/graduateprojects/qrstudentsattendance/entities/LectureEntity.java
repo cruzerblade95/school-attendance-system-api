@@ -18,10 +18,6 @@ public class LectureEntity {
     private LocalDate date;
     private LocalTime startHour;
     private LocalTime endHour;
-    @ManyToOne
-    private CourseEntity course;
-    @OneToOne
-    private TeacherEntity teacher;
     @OneToMany
     private List<AttendanceEntity> attendanceList;
 

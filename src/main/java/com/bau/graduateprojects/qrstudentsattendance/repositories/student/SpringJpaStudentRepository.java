@@ -7,7 +7,7 @@ import java.util.Optional;
 
 
 public interface SpringJpaStudentRepository extends JpaRepository<StudentEntity, Long> {
-    Optional<StudentEntity> findStudentEntityByUsername(String username);
+    StudentEntity findStudentEntityByUsername(String username);
 
     void deleteStudentEntityByUsername(String username);
 
