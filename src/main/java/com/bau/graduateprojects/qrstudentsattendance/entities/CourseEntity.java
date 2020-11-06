@@ -16,7 +16,7 @@ public class CourseEntity {
     private String name;
     @ManyToOne
     @JoinColumn(name = "teacher_id")
-    private TeacherEntity teacher;
+    private TeacherEntity teacher_id;
     @OneToMany
     private List<LectureEntity> lectureList;
 }

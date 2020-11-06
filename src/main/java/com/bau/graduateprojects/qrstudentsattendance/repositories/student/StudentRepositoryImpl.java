@@ -19,8 +19,8 @@ public class StudentRepositoryImpl implements StudentRepository {
 
     @Override
     public StudentEntity getByUsername(String username) {
-        return jpaRepository.findStudentEntityByUsername(username)
-                .orElseThrow(() -> new ResourceNotFoundException("Student not found with username = " + username));
+        return jpaRepository.findStudentEntityByUsername(username);
+//                .orElseThrow(() -> new ResourceNotFoundException("Student not found with username = " + username));;
     }
 
     @Override

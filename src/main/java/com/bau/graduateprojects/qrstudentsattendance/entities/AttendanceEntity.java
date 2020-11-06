@@ -15,7 +15,6 @@ public class AttendanceEntity {
     private Long id;
     private Status status;
     @OneToOne
+    @JoinColumn(name = "student_id")
     private StudentEntity student;
-    @ManyToOne
-    private LectureEntity lecture;
 }
