@@ -1,18 +1,19 @@
-package com.bau.graduateprojects.qrstudentsattendance.repositories.student;
+package com.bau.graduateprojects.qrstudentsattendance.servicies.student;
 
 import com.bau.graduateprojects.qrstudentsattendance.entities.StudentEntity;
 
 import java.util.List;
 
-public interface StudentRepository {
+public interface StudentService {
     List<StudentEntity> list();
+
+    StudentEntity getById(Long id);
 
     StudentEntity getByUsername(String username);
 
     StudentEntity insert(StudentEntity studentEntity);
 
-    StudentEntity getById(Long id);
-
     StudentEntity update(StudentEntity studentEntity);
+
     void removeById(Long id);
 }

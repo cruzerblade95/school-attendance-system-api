@@ -28,8 +28,11 @@ public class StudentEntity implements UserDetails {
     private String username;
     @NotBlank(message = "student password is required")
     private String password;
+    @Enumerated(EnumType.STRING)
     private Collage collage;
+    @Enumerated(EnumType.STRING)
     private Major major;
+    @Enumerated(EnumType.STRING)
     private DegreeLevel degreeLevel;
     private String nationality;
     private String birthCountry;
@@ -38,7 +41,6 @@ public class StudentEntity implements UserDetails {
     private LocalDateTime creationDate;
     @OneToMany
     private List<CourseEntity> courseList;
-
 
     @PrePersist
     public void prePersist() {

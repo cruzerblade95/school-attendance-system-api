@@ -1,8 +1,7 @@
 package com.bau.graduateprojects.qrstudentsattendance.controllers;
 
 import com.bau.graduateprojects.qrstudentsattendance.entities.StudentEntity;
-import com.bau.graduateprojects.qrstudentsattendance.repositories.student.SpringJpaStudentRepository;
-import com.bau.graduateprojects.qrstudentsattendance.repositories.student.StudentRepository;
+import com.bau.graduateprojects.qrstudentsattendance.servicies.student.StudentService;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -10,42 +9,41 @@ import java.util.List;
 @RestController
 @RequestMapping("/api/v1/student")
 public class StudentController {
+    private final StudentService studentService;
 
-    private final StudentRepository studentRepository;
-    private final SpringJpaStudentRepository jpaStudentRepository;
-
-    public StudentController(StudentRepository studentRepository, SpringJpaStudentRepository jpaStudentRepository) {
-        this.studentRepository = studentRepository;
-        this.jpaStudentRepository = jpaStudentRepository;
+    public StudentController(StudentService studentService) {
+        this.studentService = studentService;
     }
+
 
     @GetMapping
     public List<StudentEntity> list() {
-        return jpaStudentRepository.findAll();
+        return studentService.list();
     }
-//
-//    @GetMapping("/username/{username}")
-//    public StudentEntity getStudentByUsername(@PathVariable String username) {
-//        return studentRepository.getByUsername(username);
-//    }
-//
-//    @GetMapping("/id/{id}")
-//    public StudentEntity getStudentById(@PathVariable Long id) {
-//        return studentRepository.getById(id);
-//    }
+
+    @GetMapping("/id/{id}")
+    public StudentEntity getById(@PathVariable Long id) {
+        return studentService.getById(id);
+    }
+
+    @GetMapping("/username/{username}")
+    public StudentEntity getByUsername(@PathVariable String username) {
+        return studentService.getByUsername(username);
+    }
 
     @PostMapping
     public StudentEntity insert(@RequestBody StudentEntity studentEntity) {
-        return studentRepository.add(studentEntity);
+        return studentService.insert(studentEntity);
     }
-//
-//    @PutMapping
-//    public StudentEntity update(@RequestBody StudentEntity studentEntity) {
-//        return studentRepository.update(studentEntity);
-//    }
-//
-//    @DeleteMapping("/{username}")
-//    public void delete(@PathVariable String username) {
-//        studentRepository.remove(username);
-//    }
+
+    @PutMapping()
+    public StudentEntity update(@RequestBody StudentEntity studentEntity) {
+        return studentService.update(studentEntity);
+    }
+
+    @DeleteMapping("/{id}")
+    public void removeById(@PathVariable Long id) {
+        studentService.removeById(id);
+    }
+
 }
