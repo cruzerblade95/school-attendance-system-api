@@ -5,57 +5,55 @@ import com.bau.graduateprojects.qrstudentsattendance.exception.DuplicatedUsernam
 import com.bau.graduateprojects.qrstudentsattendance.exception.ResourceNotFoundException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Repository;
-import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
 @Repository
 public class StudentRepositoryImpl implements StudentRepository {
-    private final SpringJpaStudentRepository jpaRepository;
+    private final SpringJpaStudentRepository jpaStudentRepository;
 
-    public StudentRepositoryImpl(SpringJpaStudentRepository jpaRepository) {
-        this.jpaRepository = jpaRepository;
-    }
-
-    @Override
-    public StudentEntity getByUsername(String username) {
-        return jpaRepository.findStudentEntityByUsername(username);
-//                .orElseThrow(() -> new ResourceNotFoundException("Student not found with username = " + username));;
-    }
-
-    @Override
-    public StudentEntity getById(Long id) {
-        return jpaRepository.findById(id)
-                .orElseThrow(() -> new ResourceNotFoundException("Student not found with id = " + id));
-    }
-
-    @Override
-    public StudentEntity add(StudentEntity studentEntity) {
-        isExistUsername(studentEntity.getUsername());
-        studentEntity.setPassword(new BCryptPasswordEncoder()
-                .encode(studentEntity.getPassword()));
-
-        return jpaRepository.save(studentEntity);
-    }
-
-    @Override
-    public StudentEntity update(StudentEntity studentEntity) {
-        return jpaRepository.save(studentEntity);
-    }
-
-    @Override
-    @Transactional
-    public void remove(String username) {
-        jpaRepository.deleteStudentEntityByUsername(username);
+    public StudentRepositoryImpl(SpringJpaStudentRepository jpaStudentRepository) {
+        this.jpaStudentRepository = jpaStudentRepository;
     }
 
     @Override
     public List<StudentEntity> list() {
-        return jpaRepository.findAll();
+        return jpaStudentRepository.findAll();
+    }
+
+    @Override
+    public StudentEntity getByUsername(String username) {
+        return jpaStudentRepository.findByUsername(username)
+                .orElseThrow(() -> new ResourceNotFoundException("student not found with username = " + username));
+    }
+
+    @Override
+    public StudentEntity insert(StudentEntity studentEntity) {
+        isExistUsername(studentEntity.getUsername());
+        studentEntity.setPassword(new BCryptPasswordEncoder()
+                .encode(studentEntity.getPassword()));
+
+        return jpaStudentRepository.save(studentEntity);
+    }
+
+    @Override
+    public StudentEntity getById(Long id) {
+        return jpaStudentRepository.findById(id)
+                .orElseThrow(() -> new ResourceNotFoundException("student not found with id = " + id));
+    }
+
+    @Override
+    public StudentEntity update(StudentEntity studentEntity) {
+        return jpaStudentRepository.save(studentEntity);
+    }
+
+    @Override
+    public void removeById(Long id) {
+        jpaStudentRepository.deleteById(id);
     }
 
     private void isExistUsername(String username) {
-        if (jpaRepository.existsStudentEntityByUsername(username)) {
+        if (jpaStudentRepository.existsStudentEntityByUsername(username)) {
             throw new DuplicatedUsernameException(username + " username is already taken");
         }
     }
