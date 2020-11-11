@@ -43,7 +43,7 @@ public class TeacherController {
     }
 
     @PostMapping("/login/{username}/{password}")
-    public Boolean login(@PathVariable String username, @PathVariable String password) {
+    public TeacherEntity login(@PathVariable String username, @PathVariable String password) {
         return teacherService.login(username, password);
     }
 

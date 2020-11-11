@@ -40,7 +40,7 @@ public class TeacherServiceImpl implements TeacherService {
     }
 
     @Override
-    public Boolean login(String username, String password) {
+    public TeacherEntity login(String username, String password) {
         return teacherRepository.login(username, password);
     }
 }

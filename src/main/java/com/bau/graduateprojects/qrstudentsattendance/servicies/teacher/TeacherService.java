@@ -16,5 +16,5 @@ public interface TeacherService {
 
     void removeById(Long id);
 
-    Boolean login(String username, String password);
+    TeacherEntity login(String username, String password);
 }

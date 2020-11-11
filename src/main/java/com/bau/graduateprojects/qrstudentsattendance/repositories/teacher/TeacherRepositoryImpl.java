@@ -50,10 +50,10 @@ public class TeacherRepositoryImpl implements TeacherRepository {
     }
 
     @Override
-    public Boolean login(String username, String password) {
+    public TeacherEntity login(String username, String password) {
         throwIfWrongUsername(username);
         throwIfWrongPassword(username, password);
-        return true;
+        return getByUsername(username);
     }
 
     private void throwIfWrongPassword(String username, String password) {
