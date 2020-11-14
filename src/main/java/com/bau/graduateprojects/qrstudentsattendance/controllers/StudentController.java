@@ -31,6 +31,16 @@ public class StudentController {
         return studentService.getByUsername(username);
     }
 
+    @GetMapping("/count")
+    public Long getCount() {
+        return studentService.getCount();
+    }
+
+    @GetMapping("/absent-count")
+    public Long getAbsentCount() {
+        return studentService.getAbsentCount();
+    }
+
     @PostMapping
     public StudentEntity insert(@RequestBody StudentEntity studentEntity) {
         return studentService.insert(studentEntity);

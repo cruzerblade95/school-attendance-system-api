@@ -14,5 +14,10 @@ public interface StudentRepository {
     StudentEntity getById(Long id);
 
     StudentEntity update(StudentEntity studentEntity);
+
     void removeById(Long id);
+
+    Long getCount();
+
+    Long getAbsentCount();
 }

@@ -40,6 +40,11 @@ public class ArticleRepositoryImpl implements ArticleRepository {
         jpaRepository.deleteById(id);
     }
 
+    @Override
+    public long getCount() {
+        return jpaRepository.count();
+    }
+
     private boolean isEmpty(String url) {
         return isNull(url) || url.trim().isEmpty();
     }

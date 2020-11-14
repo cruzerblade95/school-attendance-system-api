@@ -12,4 +12,6 @@ public interface ArticleRepository {
     ArticleEntity insert(ArticleEntity articleEntity);
 
     void remove(Long id);
+
+    long getCount();
 }

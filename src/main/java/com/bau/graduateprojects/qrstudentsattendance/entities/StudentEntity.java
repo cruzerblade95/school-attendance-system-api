@@ -41,6 +41,7 @@ public class StudentEntity implements UserDetails {
     private LocalDateTime creationDate;
     @OneToMany
     private List<CourseEntity> courseList;
+    private Long absentNumber;
 
     @PrePersist
     public void prePersist() {

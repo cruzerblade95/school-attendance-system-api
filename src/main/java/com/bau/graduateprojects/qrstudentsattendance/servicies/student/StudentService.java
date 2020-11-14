@@ -16,4 +16,9 @@ public interface StudentService {
     StudentEntity update(StudentEntity studentEntity);
 
     void removeById(Long id);
+
+    Long getCount();
+
+    Long getAbsentCount();
+
 }
