@@ -43,4 +43,9 @@ public class TeacherServiceImpl implements TeacherService {
     public TeacherEntity login(String username, String password) {
         return teacherRepository.login(username, password);
     }
+
+    @Override
+    public Long getCount() {
+        return teacherRepository.getCount();
+    }
 }

@@ -27,6 +27,11 @@ public class TeacherController {
         return teacherService.getById(id);
     }
 
+    @GetMapping("/count")
+    public Long getCount(){
+        return teacherService.getCount();
+    }
+
     @PutMapping
     public TeacherEntity update(@RequestBody TeacherEntity teacherEntity) {
         return teacherService.update(teacherEntity);

@@ -34,4 +34,9 @@ public class ArticleServiceImpl implements ArticleService {
     public void remove(Long id) {
         articleRepository.remove(id);
     }
+
+    @Override
+    public long getCount() {
+        return articleRepository.getCount();
+    }
 }

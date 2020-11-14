@@ -56,6 +56,11 @@ public class TeacherRepositoryImpl implements TeacherRepository {
         return getByUsername(username);
     }
 
+    @Override
+    public Long getCount() {
+        return jpaTeacherRepository.count();
+    }
+
     private void throwIfWrongPassword(String username, String password) {
         TeacherEntity teacherEntity = getByUsername(username);
         if (!teacherEntity.getPassword().equals(password)) {

@@ -52,6 +52,16 @@ public class StudentRepositoryImpl implements StudentRepository {
         jpaStudentRepository.deleteById(id);
     }
 
+    @Override
+    public Long getCount() {
+        return jpaStudentRepository.count();
+    }
+
+    @Override
+    public Long getAbsentCount() {
+        return jpaStudentRepository.countAllByAbsentNumberGreaterThanEqual(1L);
+    }
+
     private void isExistUsername(String username) {
         if (jpaStudentRepository.existsStudentEntityByUsername(username)) {
             throw new DuplicatedUsernameException(username + " username is already taken");

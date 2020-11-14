@@ -21,17 +21,22 @@ public class ArticleController {
     }
 
     @GetMapping("/{id}")
-    public ArticleEntity getArticleById(@PathVariable Long id){
+    public ArticleEntity getArticleById(@PathVariable Long id) {
         return articleService.getArticleById(id);
     }
 
+    @GetMapping("/count")
+    public Long getCount() {
+        return articleService.getCount();
+    }
+
     @PostMapping
-    public ArticleEntity insert(@RequestBody ArticleEntity articleEntity){
+    public ArticleEntity insert(@RequestBody ArticleEntity articleEntity) {
         return articleService.insert(articleEntity);
     }
 
     @DeleteMapping("/{id}")
-    public void removeById(@PathVariable Long id){
+    public void removeById(@PathVariable Long id) {
         articleService.remove(id);
     }
 }

@@ -16,4 +16,7 @@ public interface TeacherRepository {
     void removeById(Long id);
 
     TeacherEntity login(String username, String password);
+
+    Long getCount();
+
 }

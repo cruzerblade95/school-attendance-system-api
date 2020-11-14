@@ -43,4 +43,14 @@ public class StudentServiceImp implements StudentService {
     public void removeById(Long id) {
         studentRepository.removeById(id);
     }
+
+    @Override
+    public Long getCount() {
+        return studentRepository.getCount();
+    }
+
+    @Override
+    public Long getAbsentCount() {
+        return studentRepository.getAbsentCount();
+    }
 }
