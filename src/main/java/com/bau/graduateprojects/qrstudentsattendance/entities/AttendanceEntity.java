@@ -1,6 +1,5 @@
 package com.bau.graduateprojects.qrstudentsattendance.entities;
 
-import com.bau.graduateprojects.qrstudentsattendance.enums.Status;
 import lombok.Data;
 
 import javax.persistence.*;
@@ -13,7 +12,7 @@ public class AttendanceEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Long id;
-    private Status status;
+    private String status;
     @OneToOne
     @JoinColumn(name = "student_id")
     private StudentEntity student;

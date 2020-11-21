@@ -57,11 +57,6 @@ public class StudentRepositoryImpl implements StudentRepository {
         return jpaStudentRepository.count();
     }
 
-    @Override
-    public Long getAbsentCount() {
-        return jpaStudentRepository.countAllByAbsentNumberGreaterThanEqual(1L);
-    }
-
     private void isExistUsername(String username) {
         if (jpaStudentRepository.existsStudentEntityByUsername(username)) {
             throw new DuplicatedUsernameException(username + " username is already taken");
