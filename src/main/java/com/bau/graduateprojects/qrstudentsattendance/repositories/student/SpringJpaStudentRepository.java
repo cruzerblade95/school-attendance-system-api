@@ -12,5 +12,4 @@ public interface SpringJpaStudentRepository extends JpaRepository<StudentEntity,
 
     void deleteStudentEntityByUsername(String username);
 
-    long countAllByAbsentNumberGreaterThanEqual(Long val);
 }

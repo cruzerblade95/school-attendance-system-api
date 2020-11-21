@@ -18,7 +18,4 @@ public interface StudentService {
     void removeById(Long id);
 
     Long getCount();
-
-    Long getAbsentCount();
-
 }

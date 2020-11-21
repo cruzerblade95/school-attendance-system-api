@@ -1,15 +1,11 @@
 package com.bau.graduateprojects.qrstudentsattendance.entities;
 
-import com.bau.graduateprojects.qrstudentsattendance.enums.Collage;
-import com.bau.graduateprojects.qrstudentsattendance.enums.DegreeLevel;
-import com.bau.graduateprojects.qrstudentsattendance.enums.Major;
 import lombok.Data;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.Collection;
 import java.util.List;
@@ -28,20 +24,11 @@ public class StudentEntity implements UserDetails {
     private String username;
     @NotBlank(message = "student password is required")
     private String password;
-    @Enumerated(EnumType.STRING)
-    private Collage collage;
-    @Enumerated(EnumType.STRING)
-    private Major major;
-    @Enumerated(EnumType.STRING)
-    private DegreeLevel degreeLevel;
-    private String nationality;
-    private String birthCountry;
-    private int successHours;
-    private LocalDate birthDate;
+    private String collage;
+    private String major;
     private LocalDateTime creationDate;
     @OneToMany
     private List<CourseEntity> courseList;
-    private Long absentNumber;
 
     @PrePersist
     public void prePersist() {

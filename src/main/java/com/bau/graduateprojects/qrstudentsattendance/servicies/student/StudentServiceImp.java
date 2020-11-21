@@ -49,8 +49,4 @@ public class StudentServiceImp implements StudentService {
         return studentRepository.getCount();
     }
 
-    @Override
-    public Long getAbsentCount() {
-        return studentRepository.getAbsentCount();
-    }
 }

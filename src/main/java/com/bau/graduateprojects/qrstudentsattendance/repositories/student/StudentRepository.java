@@ -18,6 +18,4 @@ public interface StudentRepository {
     void removeById(Long id);
 
     Long getCount();
-
-    Long getAbsentCount();
 }

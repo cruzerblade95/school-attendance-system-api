@@ -1,6 +1,5 @@
 package com.bau.graduateprojects.qrstudentsattendance.entities;
 
-import com.bau.graduateprojects.qrstudentsattendance.enums.WeekDays;
 import lombok.Data;
 
 import javax.persistence.*;
@@ -27,8 +26,7 @@ public class TeacherEntity {
     private String officeLocation;
     private LocalDateTime officeHoursFrom;
     private LocalDateTime officeHoursTo;
-    @Enumerated(EnumType.STRING)
-    private WeekDays officeHoursDays;
+    private String officeHoursDays;
     @OneToMany
     private List<CourseEntity> courseList;
 }
