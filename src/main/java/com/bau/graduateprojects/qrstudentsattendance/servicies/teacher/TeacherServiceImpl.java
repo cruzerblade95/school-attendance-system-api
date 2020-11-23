@@ -48,4 +48,9 @@ public class TeacherServiceImpl implements TeacherService {
     public Long getCount() {
         return teacherRepository.getCount();
     }
+
+    @Override
+    public TeacherEntity getByUsername(String username) {
+        return teacherRepository.getByUsername(username);
+    }
 }

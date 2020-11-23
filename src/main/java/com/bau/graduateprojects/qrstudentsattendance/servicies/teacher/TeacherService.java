@@ -19,4 +19,7 @@ public interface TeacherService {
     TeacherEntity login(String username, String password);
 
     Long getCount();
+
+    TeacherEntity getByUsername(String username);
+
 }
