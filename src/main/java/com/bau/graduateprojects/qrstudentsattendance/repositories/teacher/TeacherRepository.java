@@ -19,4 +19,6 @@ public interface TeacherRepository {
 
     Long getCount();
 
+    TeacherEntity getByUsername(String username);
+
 }

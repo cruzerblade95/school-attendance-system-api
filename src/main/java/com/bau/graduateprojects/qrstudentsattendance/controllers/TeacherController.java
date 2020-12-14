@@ -22,13 +22,18 @@ public class TeacherController {
         return teacherService.list();
     }
 
-    @GetMapping("/{id}")
+    @GetMapping("/id/{id}")
     public TeacherEntity getById(@PathVariable Long id) {
         return teacherService.getById(id);
     }
 
+    @GetMapping("/username/{username}")
+    public TeacherEntity getByUsername(@PathVariable String username) {
+        return teacherService.getByUsername(username);
+    }
+
     @GetMapping("/count")
-    public Long getCount(){
+    public Long getCount() {
         return teacherService.getCount();
     }
 

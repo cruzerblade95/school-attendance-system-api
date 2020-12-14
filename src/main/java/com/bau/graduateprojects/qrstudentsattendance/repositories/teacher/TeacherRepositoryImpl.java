@@ -68,9 +68,10 @@ public class TeacherRepositoryImpl implements TeacherRepository {
         }
     }
 
-    private TeacherEntity getByUsername(String username) {
+    @Override
+    public TeacherEntity getByUsername(String username) {
         return jpaTeacherRepository.findTeacherEntityByUsername(username)
-                .orElseThrow(() -> new ResourceNotFoundException("teacher not found with username"));
+                .orElseThrow(() -> new ResourceNotFoundException("teacher not found with username " + username));
     }
 
     private void throwIfWrongUsername(String username) {

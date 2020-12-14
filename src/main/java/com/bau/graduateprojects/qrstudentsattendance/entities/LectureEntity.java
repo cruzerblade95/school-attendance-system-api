@@ -20,5 +20,4 @@ public class LectureEntity {
     private LocalTime endHour;
     @OneToMany
     private List<AttendanceEntity> attendanceList;
-
 }
