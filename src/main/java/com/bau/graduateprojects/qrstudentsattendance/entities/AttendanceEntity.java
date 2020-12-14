@@ -13,7 +13,5 @@ public class AttendanceEntity {
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Long id;
     private String status;
-    @OneToOne
-    @JoinColumn(name = "student_id")
-    private StudentEntity student;
+    private String studentUsername;
 }

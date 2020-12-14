@@ -1,5 +1,6 @@
 package com.bau.graduateprojects.qrstudentsattendance.controllers;
 
+import com.bau.graduateprojects.qrstudentsattendance.entities.CourseEntity;
 import com.bau.graduateprojects.qrstudentsattendance.entities.StudentEntity;
 import com.bau.graduateprojects.qrstudentsattendance.entities.TeacherEntity;
 import com.bau.graduateprojects.qrstudentsattendance.servicies.integration.IntegrationService;
@@ -32,6 +33,16 @@ public class IntegrationController {
     @DeleteMapping("/course-teacher/{tId}/{cId}")
     public void removeCourseToTeacher(@PathVariable Long tId, @PathVariable Long cId) {
         integrationService.removeCourseToTeacher(tId, cId);
+    }
+
+    @PutMapping("/lecture-course/{lId}/{cId}")
+    public CourseEntity addLectureToCourse(@PathVariable Long lId, @PathVariable Long cId) {
+        return integrationService.addLectureToCourse(lId, cId);
+    }
+
+    @DeleteMapping("/lecture-course/{lId}/{cId}")
+    public void removeLectureFromCourse(@PathVariable Long lId, @PathVariable Long cId) {
+        integrationService.removeLectureFromCourse(lId, cId);
     }
 
 }

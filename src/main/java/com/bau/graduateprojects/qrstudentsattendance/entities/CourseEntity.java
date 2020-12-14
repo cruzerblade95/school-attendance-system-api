@@ -27,9 +27,7 @@ public class CourseEntity {
     private int hours;
     @NotNull(message = "section number is required")
     private int sectionNumber;
-    @ManyToOne
-    @JoinColumn(name = "teacher_id")
-    private TeacherEntity teacher_id;
+    private Long teacher_id;
     @OneToMany
     private List<LectureEntity> lectureList;
 }
