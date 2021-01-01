@@ -30,6 +30,8 @@ public class StudentEntity implements UserDetails {
     @OneToMany
     private List<CourseEntity> courseList;
 
+    // TODO remove the relation between stu and courses and make a new entity called 'StudentCourseEntity'
+    
     @PrePersist
     public void prePersist() {
         this.creationDate = LocalDateTime.now();

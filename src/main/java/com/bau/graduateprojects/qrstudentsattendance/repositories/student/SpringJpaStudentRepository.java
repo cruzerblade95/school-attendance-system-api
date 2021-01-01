@@ -11,5 +11,4 @@ public interface SpringJpaStudentRepository extends JpaRepository<StudentEntity,
     boolean existsStudentEntityByUsername(String username);
 
     void deleteStudentEntityByUsername(String username);
-
 }

@@ -1,5 +1,6 @@
 package com.bau.graduateprojects.qrstudentsattendance.servicies.lecture;
 
+import com.bau.graduateprojects.qrstudentsattendance.entities.AttendanceEntity;
 import com.bau.graduateprojects.qrstudentsattendance.entities.LectureEntity;
 
 import java.util.List;
@@ -12,4 +13,6 @@ public interface LectureService {
     LectureEntity insert(LectureEntity lectureEntity);
 
     void removeById(Long id);
+
+    List<AttendanceEntity> getAttendanceByDate(String date);
 }
