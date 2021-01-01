@@ -1,5 +1,6 @@
 package com.bau.graduateprojects.qrstudentsattendance.repositories.teacher;
 
+import com.bau.graduateprojects.qrstudentsattendance.entities.CourseEntity;
 import com.bau.graduateprojects.qrstudentsattendance.entities.TeacherEntity;
 import com.bau.graduateprojects.qrstudentsattendance.exception.DuplicatedUsernameException;
 import com.bau.graduateprojects.qrstudentsattendance.exception.ResourceNotFoundException;
@@ -72,6 +73,11 @@ public class TeacherRepositoryImpl implements TeacherRepository {
     public TeacherEntity getByUsername(String username) {
         return jpaTeacherRepository.findTeacherEntityByUsername(username)
                 .orElseThrow(() -> new ResourceNotFoundException("teacher not found with username " + username));
+    }
+
+    @Override
+    public List<CourseEntity> getCourses(String username) {
+        return getByUsername(username).getCourseList();
     }
 
     private void throwIfWrongUsername(String username) {

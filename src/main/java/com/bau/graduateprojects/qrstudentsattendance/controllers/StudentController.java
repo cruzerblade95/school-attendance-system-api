@@ -5,6 +5,7 @@ import com.bau.graduateprojects.qrstudentsattendance.servicies.student.StudentSe
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Map;
 
 @RestController
 @RequestMapping("/api/v1/student")
@@ -34,6 +35,11 @@ public class StudentController {
     @GetMapping("/count")
     public Long getCount() {
         return studentService.getCount();
+    }
+
+    @GetMapping("/course/{id}")
+    public Map<String, String> getStudentsByCourseId(@PathVariable Long id) {
+        return studentService.getStudentsByCourseId(id);
     }
 
     @PostMapping

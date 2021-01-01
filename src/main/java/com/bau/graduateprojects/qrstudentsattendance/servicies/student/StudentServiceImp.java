@@ -5,6 +5,7 @@ import com.bau.graduateprojects.qrstudentsattendance.repositories.student.Studen
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Map;
 
 @Service
 public class StudentServiceImp implements StudentService {
@@ -47,6 +48,11 @@ public class StudentServiceImp implements StudentService {
     @Override
     public Long getCount() {
         return studentRepository.getCount();
+    }
+
+    @Override
+    public Map<String, String> getStudentsByCourseId(Long id) {
+        return studentRepository.getStudentsByCourseId(id);
     }
 
 }

@@ -1,5 +1,6 @@
 package com.bau.graduateprojects.qrstudentsattendance.controllers;
 
+import com.bau.graduateprojects.qrstudentsattendance.entities.CourseEntity;
 import com.bau.graduateprojects.qrstudentsattendance.entities.TeacherEntity;
 import com.bau.graduateprojects.qrstudentsattendance.servicies.teacher.TeacherService;
 import org.springframework.web.bind.annotation.*;
@@ -30,6 +31,11 @@ public class TeacherController {
     @GetMapping("/username/{username}")
     public TeacherEntity getByUsername(@PathVariable String username) {
         return teacherService.getByUsername(username);
+    }
+
+    @GetMapping("/username/{username}/courses")
+    public List<CourseEntity> getCourses(@PathVariable String username) {
+        return teacherService.getCourses(username);
     }
 
     @GetMapping("/count")

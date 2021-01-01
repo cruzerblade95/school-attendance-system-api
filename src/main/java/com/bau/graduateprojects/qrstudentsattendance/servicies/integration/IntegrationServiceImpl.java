@@ -64,7 +64,7 @@ public class IntegrationServiceImpl implements IntegrationService {
         CourseEntity course = courseRepository.getById(cId);
         LectureEntity lecture = lectureRepository.getById(lId);
         course.getLectureList().add(lecture);
-        return course;
+        return courseRepository.update(course);
     }
 
     @Override

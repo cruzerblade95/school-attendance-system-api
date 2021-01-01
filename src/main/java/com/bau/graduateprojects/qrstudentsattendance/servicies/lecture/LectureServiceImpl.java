@@ -1,5 +1,6 @@
 package com.bau.graduateprojects.qrstudentsattendance.servicies.lecture;
 
+import com.bau.graduateprojects.qrstudentsattendance.entities.AttendanceEntity;
 import com.bau.graduateprojects.qrstudentsattendance.entities.LectureEntity;
 import com.bau.graduateprojects.qrstudentsattendance.repositories.lecture.LectureRepository;
 import org.springframework.stereotype.Service;
@@ -32,5 +33,10 @@ public class LectureServiceImpl implements LectureService {
     @Override
     public void removeById(Long id) {
         lectureRepository.removeById(id);
+    }
+
+    @Override
+    public List<AttendanceEntity> getAttendanceByDate(String date) {
+        return lectureRepository.getAttendanceByDate(date);
     }
 }

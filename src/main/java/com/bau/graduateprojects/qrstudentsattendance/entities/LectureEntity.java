@@ -14,8 +14,6 @@ public class LectureEntity {
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Long id;
     private String date;
-    private String startHour;
-    private String endHour;
     @OneToMany
     private List<AttendanceEntity> attendanceList;
 }

@@ -1,5 +1,6 @@
 package com.bau.graduateprojects.qrstudentsattendance.repositories.lecture;
 
+import com.bau.graduateprojects.qrstudentsattendance.entities.AttendanceEntity;
 import com.bau.graduateprojects.qrstudentsattendance.entities.LectureEntity;
 import com.bau.graduateprojects.qrstudentsattendance.exception.ResourceNotFoundException;
 import org.springframework.stereotype.Repository;
@@ -35,5 +36,11 @@ public class LectureRepositoryImpl implements LectureRepository {
         repository.deleteById(id);
     }
 
-
+    @Override
+    public List<AttendanceEntity> getAttendanceByDate(String date) {
+        if (!repository.existsLectureEntityByDate(date))
+            throw new ResourceNotFoundException("lecture not found with date = " + date);
+        LectureEntity lectureEntityByDate = repository.findLectureEntityByDate(date);
+        return lectureEntityByDate.getAttendanceList();
+    }
 }

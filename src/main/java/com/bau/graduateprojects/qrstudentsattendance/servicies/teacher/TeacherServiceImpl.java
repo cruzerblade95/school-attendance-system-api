@@ -1,5 +1,6 @@
 package com.bau.graduateprojects.qrstudentsattendance.servicies.teacher;
 
+import com.bau.graduateprojects.qrstudentsattendance.entities.CourseEntity;
 import com.bau.graduateprojects.qrstudentsattendance.entities.TeacherEntity;
 import com.bau.graduateprojects.qrstudentsattendance.repositories.teacher.TeacherRepository;
 import org.springframework.stereotype.Service;
@@ -52,5 +53,10 @@ public class TeacherServiceImpl implements TeacherService {
     @Override
     public TeacherEntity getByUsername(String username) {
         return teacherRepository.getByUsername(username);
+    }
+
+    @Override
+    public List<CourseEntity> getCourses(String username) {
+        return teacherRepository.getCourses(username);
     }
 }
