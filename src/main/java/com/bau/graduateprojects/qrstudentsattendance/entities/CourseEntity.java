@@ -27,7 +27,5 @@ public class CourseEntity {
     private int hours;
     @NotNull(message = "section number is required")
     private int sectionNumber;
-    private Long teacher_id;
-    @OneToMany
-    private List<LectureEntity> lectureList;
+    private String teacherName;
 }

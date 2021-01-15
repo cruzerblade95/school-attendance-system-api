@@ -45,5 +45,10 @@ public class CourseRepositoryImp implements CourseRepository {
         jpaCourseRepository.deleteById(id);
     }
 
+    @Override
+    public boolean existById(Long courseId) {
+        return jpaCourseRepository.existsById(courseId);
+    }
+
 
 }

@@ -1,6 +1,5 @@
 package com.bau.graduateprojects.qrstudentsattendance.repositories.lecture;
 
-import com.bau.graduateprojects.qrstudentsattendance.entities.AttendanceEntity;
 import com.bau.graduateprojects.qrstudentsattendance.entities.LectureEntity;
 import com.bau.graduateprojects.qrstudentsattendance.exception.ResourceNotFoundException;
 import org.springframework.stereotype.Repository;
@@ -9,38 +8,36 @@ import java.util.List;
 
 @Repository
 public class LectureRepositoryImpl implements LectureRepository {
-    private final SpringJpaLectureRepository repository;
+    private final SpringJpaLectureRepository jpaLectureRepository;
 
     public LectureRepositoryImpl(SpringJpaLectureRepository repository) {
-        this.repository = repository;
+        this.jpaLectureRepository = repository;
     }
 
     @Override
     public List<LectureEntity> list() {
-        return repository.findAll();
+        return jpaLectureRepository.findAll();
     }
 
     @Override
     public LectureEntity getById(Long id) {
-        return repository.findById(id)
+        return jpaLectureRepository.findById(id)
                 .orElseThrow(() -> new ResourceNotFoundException("lecture not found with id = " + id));
     }
 
     @Override
     public LectureEntity insert(LectureEntity lectureEntity) {
-        return repository.save(lectureEntity);
+
+        return jpaLectureRepository.save(lectureEntity);
     }
 
     @Override
     public void removeById(Long id) {
-        repository.deleteById(id);
+        jpaLectureRepository.deleteById(id);
     }
 
     @Override
-    public List<AttendanceEntity> getAttendanceByDate(String date) {
-        if (!repository.existsLectureEntityByDate(date))
-            throw new ResourceNotFoundException("lecture not found with date = " + date);
-        LectureEntity lectureEntityByDate = repository.findLectureEntityByDate(date);
-        return lectureEntityByDate.getAttendanceList();
+    public boolean existById(Long lectureId) {
+        return jpaLectureRepository.existsById(lectureId);
     }
 }

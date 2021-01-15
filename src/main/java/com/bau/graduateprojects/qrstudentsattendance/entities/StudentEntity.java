@@ -8,7 +8,6 @@ import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import java.time.LocalDateTime;
 import java.util.Collection;
-import java.util.List;
 
 @Entity
 @Data
@@ -27,11 +26,8 @@ public class StudentEntity implements UserDetails {
     private String collage;
     private String major;
     private LocalDateTime creationDate;
-    @OneToMany
-    private List<CourseEntity> courseList;
 
-    // TODO remove the relation between stu and courses and make a new entity called 'StudentCourseEntity'
-    
+
     @PrePersist
     public void prePersist() {
         this.creationDate = LocalDateTime.now();

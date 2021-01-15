@@ -13,8 +13,23 @@ public class TeacherRepositoryImpl implements TeacherRepository {
 
     private final SpringJpaTeacherRepository jpaTeacherRepository;
 
+
     public TeacherRepositoryImpl(SpringJpaTeacherRepository jpaTeacherRepository) {
         this.jpaTeacherRepository = jpaTeacherRepository;
+    }
+
+    private void throwIfWrongUsername(String username) {
+        if (!isUsernameExist(username)) {
+            throw new ResourceNotFoundException("wrong username :(");
+        }
+    }
+
+    private boolean isUsernameExist(String username) {
+        return jpaTeacherRepository.existsByUsername(username);
+    }
+
+    private boolean isExist(Long id) {
+        return jpaTeacherRepository.existsById(id);
     }
 
     @Override
@@ -77,20 +92,12 @@ public class TeacherRepositoryImpl implements TeacherRepository {
 
     @Override
     public List<CourseEntity> getCourses(String username) {
-        return getByUsername(username).getCourseList();
+        return null
+        ;//getByUsername(username).getCourseList();
     }
 
-    private void throwIfWrongUsername(String username) {
-        if (!isUsernameExist(username)) {
-            throw new ResourceNotFoundException("wrong username :(");
-        }
-    }
-
-    private boolean isUsernameExist(String username) {
-        return jpaTeacherRepository.existsByUsername(username);
-    }
-
-    private boolean isExist(Long id) {
-        return jpaTeacherRepository.existsById(id);
+    @Override
+    public boolean existById(Long teacherId) {
+        return jpaTeacherRepository.existsById(teacherId);
     }
 }

@@ -3,7 +3,6 @@ package com.bau.graduateprojects.qrstudentsattendance.repositories.student;
 import com.bau.graduateprojects.qrstudentsattendance.entities.StudentEntity;
 
 import java.util.List;
-import java.util.Map;
 
 public interface StudentRepository {
     List<StudentEntity> list();
@@ -20,5 +19,5 @@ public interface StudentRepository {
 
     Long getCount();
 
-    Map<String, String> getStudentsByCourseId(Long id);
+    boolean existById(Long studentId);
 }

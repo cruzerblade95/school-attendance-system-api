@@ -1,6 +1,5 @@
 package com.bau.graduateprojects.qrstudentsattendance.repositories.lecture;
 
-import com.bau.graduateprojects.qrstudentsattendance.entities.AttendanceEntity;
 import com.bau.graduateprojects.qrstudentsattendance.entities.LectureEntity;
 
 import java.util.List;
@@ -14,5 +13,5 @@ public interface LectureRepository {
 
     void removeById(Long id);
 
-    List<AttendanceEntity> getAttendanceByDate(String date);
+    boolean existById(Long lectureId);
 }

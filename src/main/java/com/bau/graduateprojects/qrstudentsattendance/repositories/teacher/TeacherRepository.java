@@ -23,4 +23,6 @@ public interface TeacherRepository {
     TeacherEntity getByUsername(String username);
 
     List<CourseEntity> getCourses(String username);
+
+    boolean existById(Long teacherId);
 }

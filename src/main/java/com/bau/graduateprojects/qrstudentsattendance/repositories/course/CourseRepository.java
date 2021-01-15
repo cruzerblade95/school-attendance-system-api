@@ -16,4 +16,6 @@ public interface CourseRepository {
     CourseEntity update(CourseEntity courseEntity);
 
     void removeById(Long id);
+
+    boolean existById(Long courseId);
 }

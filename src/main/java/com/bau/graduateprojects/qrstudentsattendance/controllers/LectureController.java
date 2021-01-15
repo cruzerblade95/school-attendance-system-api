@@ -1,6 +1,5 @@
 package com.bau.graduateprojects.qrstudentsattendance.controllers;
 
-import com.bau.graduateprojects.qrstudentsattendance.entities.AttendanceEntity;
 import com.bau.graduateprojects.qrstudentsattendance.entities.LectureEntity;
 import com.bau.graduateprojects.qrstudentsattendance.servicies.lecture.LectureService;
 import org.springframework.web.bind.annotation.*;
@@ -26,13 +25,8 @@ public class LectureController {
         return lectureService.getById(id);
     }
 
-    @GetMapping("/attendance/{date}")
-    public List<AttendanceEntity> getAttendanceByDate(@PathVariable String date) {
-        return lectureService.getAttendanceByDate(date);
-    }
-
-    @PostMapping
-    public LectureEntity insert(@RequestBody LectureEntity lectureEntity) {
+    @PostMapping("/{lId}")
+    public LectureEntity insert(@RequestBody LectureEntity lectureEntity, @PathVariable Long lId) {
         return lectureService.insert(lectureEntity);
     }
 
