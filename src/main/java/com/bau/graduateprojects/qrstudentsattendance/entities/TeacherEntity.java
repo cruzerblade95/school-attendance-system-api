@@ -4,8 +4,6 @@ import lombok.Data;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
-import java.time.LocalDateTime;
-import java.util.List;
 
 @Entity
 @Data
@@ -24,9 +22,7 @@ public class TeacherEntity {
     private String phone;
     private String email;
     private String officeLocation;
-    private LocalDateTime officeHoursFrom;
-    private LocalDateTime officeHoursTo;
+    private String officeHoursFrom;
+    private String officeHoursTo;
     private String officeHoursDays;
-    @OneToMany
-    private List<CourseEntity> courseList;
 }

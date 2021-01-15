@@ -1,19 +1,34 @@
 package com.bau.graduateprojects.qrstudentsattendance.servicies.integration;
 
-import com.bau.graduateprojects.qrstudentsattendance.entities.CourseEntity;
-import com.bau.graduateprojects.qrstudentsattendance.entities.StudentEntity;
-import com.bau.graduateprojects.qrstudentsattendance.entities.TeacherEntity;
+import com.bau.graduateprojects.qrstudentsattendance.entities.*;
+
+import java.util.List;
 
 public interface IntegrationService {
-    StudentEntity addCourseToStudent(Long sId, Long cId);
+    StudentCourseEntity addCourseToStudent(StudentCourseEntity record);
 
     void removeCourseFromStudent(Long sId, Long cId);
 
-    TeacherEntity addCourseToTeacher(Long tId, Long cId);
+    TeacherCourseEntity addCourseToTeacher(TeacherCourseEntity entity);
 
-    void removeCourseToTeacher(Long tId, Long cId);
-
-    CourseEntity addLectureToCourse(Long lId, Long cId);
+    void removeCourseFromTeacher(Long tId, Long cId);
 
     void removeLectureFromCourse(Long lId, Long cId);
+
+    List<CourseEntity> getAllCoursesByStudentId(Long sId);
+
+    List<StudentEntity> getAllStudentsByCourseId(Long cId);
+
+    List<CourseEntity> getAllCoursesByTeacherId(Long tId);
+
+    LectureCourseEntity addLectureToCourse(LectureCourseEntity entity);
+
+    List<LectureEntity> getAllLecturesByCourseId(Long cId);
+
+    List<AttendanceEntity> getAllAttendanceByLectureId(Long lId);
+
+    LectureAttendanceEntity addAttendanceToLecture(LectureAttendanceEntity entity);
+
+    AttendanceEntity updateStatusAttendanceId(Long attId);
 }
+

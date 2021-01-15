@@ -6,9 +6,7 @@ import com.bau.graduateprojects.qrstudentsattendance.exception.ResourceNotFoundE
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Repository;
 
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 @Repository
 public class StudentRepositoryImpl implements StudentRepository {
@@ -60,19 +58,8 @@ public class StudentRepositoryImpl implements StudentRepository {
     }
 
     @Override
-    public Map<String, String> getStudentsByCourseId(Long id) {
-        Map<String, String> students = new HashMap<>();
-        list()
-                .forEach(studentEntity -> {
-                    studentEntity
-                            .getCourseList()
-                            .forEach(courseEntity -> {
-                                if (courseEntity.getId().equals(id)) {
-                                    students.put(studentEntity.getUsername(), studentEntity.getName());
-                                }
-                            });
-                });
-        return students;
+    public boolean existById(Long studentId) {
+        return jpaStudentRepository.existsById(studentId);
     }
 
     private void isExistUsername(String username) {
