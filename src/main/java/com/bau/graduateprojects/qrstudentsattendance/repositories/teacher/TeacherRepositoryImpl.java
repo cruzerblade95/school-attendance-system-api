@@ -91,12 +91,6 @@ public class TeacherRepositoryImpl implements TeacherRepository {
     }
 
     @Override
-    public List<CourseEntity> getCourses(String username) {
-        return null
-        ;//getByUsername(username).getCourseList();
-    }
-
-    @Override
     public boolean existById(Long teacherId) {
         return jpaTeacherRepository.existsById(teacherId);
     }

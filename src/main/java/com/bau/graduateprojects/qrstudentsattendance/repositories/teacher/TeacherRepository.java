@@ -1,6 +1,5 @@
 package com.bau.graduateprojects.qrstudentsattendance.repositories.teacher;
 
-import com.bau.graduateprojects.qrstudentsattendance.entities.CourseEntity;
 import com.bau.graduateprojects.qrstudentsattendance.entities.TeacherEntity;
 
 import java.util.List;
@@ -21,8 +20,6 @@ public interface TeacherRepository {
     Long getCount();
 
     TeacherEntity getByUsername(String username);
-
-    List<CourseEntity> getCourses(String username);
 
     boolean existById(Long teacherId);
 }
