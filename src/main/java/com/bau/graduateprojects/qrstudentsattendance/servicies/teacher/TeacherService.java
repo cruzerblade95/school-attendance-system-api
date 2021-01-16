@@ -22,6 +22,4 @@ public interface TeacherService {
     Long getCount();
 
     TeacherEntity getByUsername(String username);
-
-    List<CourseEntity> getCourses(String username);
 }

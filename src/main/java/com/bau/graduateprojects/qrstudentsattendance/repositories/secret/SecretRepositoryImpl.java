@@ -15,7 +15,7 @@ public class SecretRepositoryImpl implements SecretRepository {
     public String getKey(Long cId) {
         if (isExist(cId)) {
             return jpaSecretRepository.findSecretKeyEntityByCourseId(cId)
-                    .getKey();
+                    .getSKey();
         }
         throw new ResourceNotFoundException("key not found for this course");
     }

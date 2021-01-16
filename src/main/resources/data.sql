@@ -1257,3 +1257,32 @@ values (199, 199, 13);
 insert into `student_course` (id, student_id, course_id)
 values (200, 200, 14);
 
+
+insert into `article` (id, content, title, image_url)
+values (1, "البلقاء تتأهل الى المسابقة العربية", "بفضل فريق One&HalfThreads", "https://i.ibb.co/sWRyJHp/article.png");
+insert into `article` (id, content, title, image_url)
+values (2, "الزعبي يكرم الطلبة الفائزين بالمسابقة البيئية في البلقاء", "تكريم الفائزين بالمسابقة ",
+        "https://www.bau.edu.jo/BauLivePortal/attch/9107_7.jpg");
+insert into `article` (id, content, title, image_url)
+values (3, "رئيس جامعة البلقاء التطبيقية يلتقي أسرة كلية الأميرة رحمة الجامعية", "الزعبي في كلية الأميرة رحمة ",
+        "https://live.bau.edu.jo/BauLivePortal/attch/9101_5.jpg");
+insert into `article` (id, content, title, image_url)
+values (4, "رئيس جامعة البلقاء التطبيقية يهنئ أسرة كلية عمان الجامعية بحصولها على شهادة ضمان الجودة",
+        "كلية عمان داخل نظام الجودة", "https://live.bau.edu.jo/BauLivePortal/attch/9108_4.jpg");
+insert into `article` (id, content, title, image_url)
+values (5, "اعلان نتائج المنح والقروض للاطلاع يرجى", "اعلان نتائج المنح والقروض",
+        "https://i.ibb.co/sWRyJHp/article.png");
+insert into `article` (id, content, title, image_url)
+values (6, "اختتام دورة مهارات التفكير والتخطيط الاستراتيجي في كلية الاميره عالية الجامعية بالتعاون مع المركز الوطني ",
+        "اختتام دورة مهارات التفكير", "https://live.bau.edu.jo/BauLivePortal/attch/9109_3.jpg");
+insert into `article` (id, content, title, image_url)
+values (7, "اعلان تعديل مواعيد الانسحاب من مادة أو أكثر الفصل الدراسي الاول", "اعلان تعديل مواعيد",
+        "https://i.ibb.co/sWRyJHp/article.png");
+insert into `article` (id, content, title, image_url)
+values (8, "مناقشة رسالة ماجستير في كلية اربد الجامعية", "مناقشة", "https://i.ibb.co/sWRyJHp/article.png");
+insert into `article` (id, content, title, image_url)
+values (9, "البلقاء التطبيقية تشارك في ورشة إقليمية حول مفهوم التعليم العالي التطبيقي وتحسين جودته",
+        "البلقاء التطبيقية تشارك في ورشة إقليمية", "https://i.ibb.co/sWRyJHp/article.png");
+insert into `article` (id, content, title, image_url)
+values (10, "الزراعة التكنولوجية وشؤون الطلبة تنظمان نشاطا زراعيا للطلبة في البلقاء التطبيقية", "الزراعة التكنولوجية",
+        "https://live.bau.edu.jo/BauLivePortal/attch/9110_4.jpg");

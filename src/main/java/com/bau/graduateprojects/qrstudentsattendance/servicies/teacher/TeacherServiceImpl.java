@@ -54,9 +54,4 @@ public class TeacherServiceImpl implements TeacherService {
     public TeacherEntity getByUsername(String username) {
         return teacherRepository.getByUsername(username);
     }
-
-    @Override
-    public List<CourseEntity> getCourses(String username) {
-        return teacherRepository.getCourses(username);
-    }
 }

@@ -33,11 +33,6 @@ public class TeacherController {
         return teacherService.getByUsername(username);
     }
 
-    @GetMapping("/username/{username}/courses")
-    public List<CourseEntity> getCourses(@PathVariable String username) {
-        return teacherService.getCourses(username);
-    }
-
     @GetMapping("/count")
     public Long getCount() {
         return teacherService.getCount();
