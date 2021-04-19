@@ -2,6 +2,7 @@ package com.bau.graduateprojects.qrstudentsattendance.servicies.teacher;
 
 import com.bau.graduateprojects.qrstudentsattendance.entities.CourseEntity;
 import com.bau.graduateprojects.qrstudentsattendance.entities.TeacherEntity;
+import com.bau.graduateprojects.qrstudentsattendance.entities.TeacherCourseEntity;
 
 import java.util.List;
 
@@ -12,6 +13,8 @@ public interface TeacherService {
     TeacherEntity insert(TeacherEntity teacherEntity);
 
     TeacherEntity getById(Long id);
+    
+    TeacherCourseEntity getByTeacherId(Long teacherId);
 
     TeacherEntity update(TeacherEntity teacherEntity);
 

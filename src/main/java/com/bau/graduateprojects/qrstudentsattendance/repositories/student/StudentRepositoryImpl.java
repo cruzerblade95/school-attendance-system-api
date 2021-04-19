@@ -44,6 +44,8 @@ public class StudentRepositoryImpl implements StudentRepository {
 
     @Override
     public StudentEntity update(StudentEntity studentEntity) {
+        studentEntity.setPassword(new BCryptPasswordEncoder()
+                .encode(studentEntity.getPassword()));
         return jpaStudentRepository.save(studentEntity);
     }
 

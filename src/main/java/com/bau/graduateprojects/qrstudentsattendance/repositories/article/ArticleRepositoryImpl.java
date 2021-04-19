@@ -30,7 +30,7 @@ public class ArticleRepositoryImpl implements ArticleRepository {
     @Override
     public ArticleEntity insert(ArticleEntity articleEntity) {
         if (isEmpty(articleEntity.getImageUrl())) {
-            articleEntity.setImageUrl("https://i.ibb.co/sWRyJHp/article.png");
+            articleEntity.setImageUrl("https://upload.wikimedia.org/wikipedia/commons/thumb/6/6c/No_image_3x4.svg/1200px-No_image_3x4.svg.png");
         }
         return jpaRepository.save(articleEntity);
     }

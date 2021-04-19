@@ -2,6 +2,7 @@ package com.bau.graduateprojects.qrstudentsattendance.controllers;
 
 import com.bau.graduateprojects.qrstudentsattendance.entities.CourseEntity;
 import com.bau.graduateprojects.qrstudentsattendance.entities.TeacherEntity;
+import com.bau.graduateprojects.qrstudentsattendance.entities.TeacherCourseEntity;
 import com.bau.graduateprojects.qrstudentsattendance.servicies.teacher.TeacherService;
 import org.springframework.web.bind.annotation.*;
 
@@ -26,6 +27,14 @@ public class TeacherController {
     @GetMapping("/id/{id}")
     public TeacherEntity getById(@PathVariable Long id) {
         return teacherService.getById(id);
+    }
+    
+    @GetMapping("/id/{id}/courses")
+    public TeacherCourseEntity getByTeacherId(@PathVariable Long id) {
+        
+        String query = "SELECT * FROM {id}";
+        
+        return teacherService.getByTeacherId(id);
     }
 
     @GetMapping("/username/{username}")
